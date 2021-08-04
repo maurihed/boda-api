@@ -6,8 +6,6 @@ const {
   NODE_ENV = 'production',
 } = process.env;
 
-console.log('NODE_ENV', NODE_ENV, process.env.NODE_ENV);
-
 module.exports = {
   entry: './src/index.ts',
   mode: NODE_ENV,

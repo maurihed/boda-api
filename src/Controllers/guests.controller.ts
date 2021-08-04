@@ -10,7 +10,6 @@ interface GuestRequest extends Request {
 
 export const GuestController = {
   findByParam: (req: GuestRequest, res: Response, next: NextFunction, id: any): void => {
-    console.log('ID: ', id, typeof id);
     guestService.getGuestById(id)
     .then((guest) => {
       if(!guest) {
@@ -29,7 +28,7 @@ export const GuestController = {
   },
   createOne: (req: Request, res: Response, next: NextFunction): void => {
     guestService.createOne(req.body)
-    .then(guests => res.status(201).json(req.body))
+    .then(guest => res.status(201).json(guest))
     .catch(error => next(error))
   },
   getOne: (req: GuestRequest, res: Response, next: NextFunction) => {
